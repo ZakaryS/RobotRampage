@@ -41,15 +41,11 @@ public class Robot : MonoBehaviour
         {
             return;
         }
-        // 3
+
         transform.LookAt(player);
-        // 4
         agent.SetDestination(player.position);
-        // 5
-        if (Vector3.Distance(transform.position, player.position) < range
-        && Time.time - timeLastFired > fireRate)
+        if (Vector3.Distance(transform.position, player.position) < range && Time.time - timeLastFired > fireRate)
         {
-            // 6
             timeLastFired = Time.time;
             fire();
         }
@@ -76,6 +72,7 @@ public class Robot : MonoBehaviour
             isDead = true;
             robot.Play("Die");
             StartCoroutine("DestroyRobot");
+            Game.RemoveEnemy();
             GetComponent<AudioSource>().PlayOneShot(deathSound);
         }
         else
