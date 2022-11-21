@@ -6,7 +6,7 @@ public class Gun : MonoBehaviour
 {
     public float fireRate;
     public Ammo ammo;
-    public AudioClip liveFire;
+    public AudioClip gunShot;
     public AudioClip dryFire;
     public float zoomFactor;
     public int range;
@@ -41,14 +41,15 @@ public class Gun : MonoBehaviour
     {
         if (ammo.HasAmmo(tag))
         {
-            GetComponent<AudioSource>().PlayOneShot(liveFire);
+            GetComponentInChildren<Animator>().Play("Fire");
+            //GetComponent<AudioSource>().PlayOneShot(gunShot);
             ammo.ConsumeAmmo(tag);
         }
         else
         {
-            GetComponent<AudioSource>().PlayOneShot(dryFire);
+            //GetComponent<AudioSource>().PlayOneShot(dryFire);
         }
-        GetComponentInChildren<Animator>().Play("Fire");
+        //GetComponentInChildren<Animator>().Play("Fire");
 
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;

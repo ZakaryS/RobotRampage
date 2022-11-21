@@ -370,6 +370,7 @@
 "Assets/Scripts/Robot.cs"
 "Assets/Scripts/RobotSpawn.cs"
 "Assets/Scripts/Shotgun.cs"
+"Assets/Scripts/SuperGun.cs"
 -langversion:9.0
 
 /deterministic
